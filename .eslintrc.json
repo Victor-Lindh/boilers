@@ -1,3 +1,25 @@
 {
-  "extends": "next/core-web-vitals"
+  "ecmaFeatures": {
+    "jsx": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "extends": [
+    "plugin:react/recommended"
+  ],
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": 0,
+    "space-before-function-paren" : "error",
+    "space-before-blocks" : "error",
+    "arrow-spacing" : "error",
+    "comma-spacing" : "error",
+    "no-undef" :"error"
+  }
 }
