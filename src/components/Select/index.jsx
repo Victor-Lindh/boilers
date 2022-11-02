@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import select from './select.module.scss'
 
 const Select = ({
   options = [{ value: '', label: '-- Choose --'}],
   label = 'Select',
-  onChange
+  onChange,
 }) => {
+  
   return (
     <div className={select.selectContainer}>
       <label htmlFor='select'>{label}</label>
