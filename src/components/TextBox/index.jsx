@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import makeArrayOrObjects from 'src/functions/makeArrayOrObjects'
 import style from './textbox.module.scss'
 
 const TextBox = ({
@@ -6,8 +7,6 @@ const TextBox = ({
   searchQuery
 }) => {
   const [dataset, setData] = useState(null)
-  const typeStart = searchQuery.type === 'array' ? '[' : '{'
-  const typeEnd = searchQuery.type === 'array' ? ']' : '}'
   const slicePart = { 
     'all' : data.length,
     '5' : 5,
@@ -26,7 +25,7 @@ const TextBox = ({
       rows='15'
       cols='100'
       className={style.container}
-      value={`const ${searchQuery.group} = ${typeStart}${dataset.map(d => `'${d}'`).join(', ')}${typeEnd}`}
+      value={makeArrayOrObjects(searchQuery, dataset)}
       readOnly
     />
   ) : 'No data yet!'
